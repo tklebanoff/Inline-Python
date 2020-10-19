@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.5
+pyenv global 3.8.5
+pyenv rehash
+
+zef uninstall "Inline::Python:ver<0.4>"
+perl6 configure.pl6
+make test
+zef install .
+
+
